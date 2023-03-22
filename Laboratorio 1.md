@@ -60,3 +60,10 @@ Realizar los siguientes pasos para el desarrollo del procedimiento
     ```bash
     cd /home/hkuser/workdir
     ```
+
+7. Iniciar Firefox Web Browser e ingresar a __[http://localhost](http://localhost)__
+8. En la página web mostrada arrancar la ejecución del laboratorio desde la seeción __Our Application__
+
+    ![OurAPP](Lab1-OurApp.JPG)
+
+> Nota: recuerde descargar y manipular los archivos en la ruta especificada anteriormente.
