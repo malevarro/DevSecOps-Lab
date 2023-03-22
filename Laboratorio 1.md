@@ -1,8 +1,8 @@
-# Laboratorio 1
+# Laboratorio 1 - Uso básico de contenedores (Docker)
 
 ![dockerlogo](https://www.docker.com/wp-content/uploads/2022/01/Docker-Logo-White-RGB_Horizontal-730x189-1.png)
 
-- [Laboratorio 1](#laboratorio-1)
+- [Laboratorio 1 - Uso básico de contenedores (Docker)](#laboratorio-1---uso-básico-de-contenedores-docker)
   - [Objetivo](#objetivo)
   - [Herramientas a usar](#herramientas-a-usar)
   - [Procedimiento](#procedimiento)
