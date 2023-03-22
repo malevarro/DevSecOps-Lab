@@ -39,18 +39,24 @@ Realizar los siguientes pasos para el desarrollo del procedimiento
 2. Ejecute la línea de comando. Es la aplicación llamada __Terminal__ en el borde izquierdo de la pantalla.
 3. Realice la descarga de la imagen que posee los siguientes pasos del laboratorio. se realiza mediante el siguiente comando
 
-```bash
-docker pull docker/getting-started
-```
+    ```bash
+    docker pull docker/getting-started
+    ```
 
 4. Verificar la descarga correcta de la imagen mediante el siguiente comando
 
-```bash
-docker images
-```
+    ```bash
+    docker images
+    ```
 
 5. Realice la ejecución de la imagen que contiene los laboratorios mediante el siguiente comando
 
-```bash
-docker run -d -p 80:80 docker/getting-started
-```
+    ```bash
+    docker run -d -p 80:80 docker/getting-started
+    ```
+
+6. Definir la ruta de trabajo de para los laboratorios en la carpeta '/home/hkuser/workdir'
+
+    ```bash
+    cd /home/hkuser/workdir
+    ```
