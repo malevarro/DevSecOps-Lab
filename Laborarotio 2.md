@@ -10,6 +10,7 @@
   - [Métodos de Análisis](#métodos-de-análisis)
   - [Requisitos](#requisitos)
   - [Procedimiento](#procedimiento)
+    - [Uso de la Extensión de Docker en VSCode](#uso-de-la-extensión-de-docker-en-vscode)
     - [Análisis de vulnerabilidades en el IDE](#análisis-de-vulnerabilidades-en-el-ide)
 
 ---
@@ -31,6 +32,7 @@ Para la ejecución de las actividades se hará uso de las siguientes herramienta
 | SonarQube | <https://www.sonarsource.com/open-source-editions/> | ![Sonarlogo](Images/SonarQube_Logo.png) |
 | Checkov | <https://www.checkov.io/> | ![CheckovLogo](Images/Checkov.png)
 
+> __Nota__: Para cada una de las herramientas anteriores es necesario realizar la creación de una cuenta de usuario en los sitios web relacionados anteriormente. Sin la creación de esta cuenta no podrá realizar la integración de las extensiones relacionadas en los siguientes pasos.
 ---
 
 ## Métodos de Análisis
@@ -64,6 +66,8 @@ Para la ejecución de los siguientes laboratorios es necesario la descarga de un
     > git clone https://github.com/malevarro/pipelines-javascript-docker.git
     ```
 
+    > Al final por cada aplicación descargada deberá existir una carpeta por cada una en la ruta de trabajo.
+
 5. Ejecutar los siguientes comandos para realizar la descarga de algunas imágenes de contenedores que serán usadas en los laboratorios
 
     ```bash
@@ -75,17 +79,50 @@ Para la ejecución de los siguientes laboratorios es necesario la descarga de un
     > docker pull kodekloud/webapp-color
     ```
 
+    > Se puede comprobar la descarga exitosa de las imágenes de contenedores ejecutando el siguiente comando: __docker images__
+
 ---
 
 ## Procedimiento
 
 A continuación se listan los diferentes pasos a seguir para poder realizar los análisis de vulnerabilidades sobre las aplicaciones.
 
+### Uso de la Extensión de Docker en VSCode
+
+En los siguientes pasos se realizará interacción entre la extensión de Docker instalada en VSCode
+
+1. En la máquina virtual ejecute Visual Studio Code, haciendo click en el ícono ubicado la barra lateral izquierda.
+2. Con el Visual Studio Code en ejecución, realice los siguientes pasos:
+   1. Haga click en el ícono de docker que aparece en las opciones de la izquierda
+   2. Verifique el panel que aparece en pantalla, allí encuentra la siguiente información:
+      1. Contenedores creados
+      2. Imágenes de contenedores almacenadas localmente
+      3. Imágenes de contenedores en registros remotos. se puede establecer la conexión a Docker Hub con la cuenta creada en el laboratorio anterior.
+      4. Redes de contenedores
+      5. Volúmenes
+
+        ![DockerVSExt](./Images/DockerVSExt.PNG)
+
+   3. Haga click izquierdo y despliegue el menú de opciones. Valide la información y las acciones que obtiene por este medio.
+
+         ![DockerVSOpt](./Images/DockerVSOpt.PNG)
+
 ### Análisis de vulnerabilidades en el IDE
 
-Por medio de las siguientes acciones se realizará la inspección del código de la aplicación y de la definición del contenedor (Dockerfile) directamente en el IDE al momento de realizar el desarrollo (Coding) de los mismos. Para esta labor es necesario realizar la instalación de las extensiones de Visual Studio Code. 
+Por medio de las siguientes acciones se realizará la inspección del código de la aplicación y de la definición del contenedor (Dockerfile) directamente en el IDE al momento de realizar el desarrollo (Coding) de los mismos. Para esta labor es necesario realizar la instalación de las extensiones de Visual Studio Code.
 
 Se pueden verificar todas las extensiones disponibles para Visual Studio Code en el [Marketplace](https://marketplace.visualstudio.com/vscode)
 
 1. En la máquina virtual ejecute Visual Studio Code, haciendo click en el ícono ubicado la barra lateral izquierda.
-2. 
+2. Con el Visual Studio Code en ejecución, realice los siguientes pasos para la instalación de cada una de las extensiones:
+   1. Haga click en el ícono de extensiones
+   2. En la barra de búsqueda ingrese el nombre de la extensión de la herramienta que desea instalar. los nombres de las extensiones son los siguientes:
+      1. snyk
+      2. trivy
+      3. sonarlint
+      4. checkov
+   3. Luego de buscar la herramienta, haga click en el primer resultado que aparece y luego en el botón de ***install***
+
+        ![SnykVSInstall](./Images/SnykVSInstall.JPG)
+
+   4. Espere a que finalice la instalación de la extensión y repita los pasos anteriores con cada una.
