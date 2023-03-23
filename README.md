@@ -13,4 +13,4 @@ Material de libre acceso y consulta.
 El autor no se hace responsable por el uso indebido del material aquí expuesto.
 
 ---
-___Malevarro (c) 2023__
+__Malevarro (c) 2023__
