@@ -62,7 +62,7 @@ Realizar los siguientes pasos para el desarrollo del procedimiento
     ```
 
 7. Iniciar Firefox Web Browser e ingresar a __[http://localhost](http://localhost)__
-8. En la página web mostrada arrancar la ejecución del laboratorio desde la seeción __Our Application__
+8. En la página web mostrada arrancar la ejecución del laboratorio desde la sección __Our Application__
 
     ![OurAPP](./Images/Lab1-OurApp.JPG)
 
