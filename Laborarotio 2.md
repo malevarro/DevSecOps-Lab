@@ -22,6 +22,13 @@
       - [Uso de la Extensión de Docker en VSCode](#uso-de-la-extensión-de-docker-en-vscode)
       - [Instalación de Extensiones en Visual Studio Code](#instalación-de-extensiones-en-visual-studio-code)
         - [Configuraciones de las extensiones](#configuraciones-de-las-extensiones)
+          - [Sesiones en el explorador](#sesiones-en-el-explorador)
+          - [Activación y análisis con Snyk](#activación-y-análisis-con-snyk)
+          - [Activación y análisis con Trivy](#activación-y-análisis-con-trivy)
+          - [Activación y análisis con Sonarlint](#activación-y-análisis-con-sonarlint)
+          - [Activación y análisis con Checkov](#activación-y-análisis-con-checkov)
+          - [Activación y análisis con ShiftLeft](#activación-y-análisis-con-shiftleft)
+      - [Resultados Directos de Escaneos](#resultados-directos-de-escaneos)
 
 ---
 
@@ -73,7 +80,7 @@ Para la ejecución del laboratorio es indispensable realizar los siguientes paso
 
    - [Bifurcar (Fork) un repositorio](https://docs.github.com/es/get-started/quickstart/fork-a-repo?tool=webui)
 
-4. Una vez haya creado la cuenta en GitHub ingrese a las siguientes URL y seleccione la opción de registro con __GitHub__ y de esta forma integrar todas los servicios bajo una misma cuenta.
+4. Una vez haya creado la cuenta en GitHub ingrese a las siguientes URL en el mismo navegador en pestañas diferentes y seleccione la opción de registro con __GitHub__ y de esta forma integrar todas los servicios bajo una misma cuenta.
 
    | Aplicación | URL de Registro |
    | --- | --- |
@@ -254,4 +261,187 @@ Todas las extensiones disponibles para Visual Studio Code pueden ser consultadas
 
 ##### Configuraciones de las extensiones
 
-A continuación se indican algunos factores a tener en cuenta para la configuración y activación de las extensiones
+A continuación se indican algunas acciones a tener en cuenta para la configuración y activación de las extensiones en Visual Studio Code
+
+###### Sesiones en el explorador
+
+Para realizar una integración fácil y rápida de las extensiones se recomienda realizar las siguientes acciones:
+
+1. Abra el navegador principal del equipo, para el caso de la máquina virtual es Firefox haciendo click en el ícono de la barra lateral izquierda.
+2. Inicie sesión en __GitHub__ en este explorador
+3. Una vez haya ingresado en la cuenta en GitHub, acceda a las siguientes URL en el mismo navegador en pestañas diferentes y seleccione la opción de autenticación con __GitHub__
+
+   | Aplicación | URL de Registro |
+   | --- | --- |
+   | Snyk | <https://app.snyk.io/login> |
+   | Checkov (BridgeCrew) | <https://www.bridgecrew.cloud/login/signIn> |
+   | Sonarcloud | <https://sonarcloud.io/login> |
+   | Qwiet AI (ShiftLeft) | <https://app.shiftleft.io/login> |
+
+4. __NO CIERRE EL NAVEGADOR__ y vaya la aplicación de Visual Studio Code y continue con los siguientes pasos
+
+###### Activación y análisis con Snyk
+
+Para hacer uso de la extensión de Snyk es necesario realizar los siguientes pasos luego de realizar la instalación:
+
+1. Haga click en el ícono de __Snyk__ que ahora se ubica en la barra lateral izquierda
+2. Haga click en el botón de *Trust workspace and connect*
+
+    ![SnykAct1](./Images/SnykAct1.PNG)
+
+3. Espere a que abra una nueva ventana del navegador y haga click en e botón de *Authenticate*
+
+    ![SnykAct2](./Images/SnykAct2.PNG)
+
+4. Espere a que cargue la ventana de confirmación. En este punto ya puede volver a Visual Studio Code y ver como trabaja la extensión
+
+    ![SnykAct3](./Images/SnykAct3.PNG)
+
+5. Valide la información expuesta por la extensión. Solucione algunas de las vulnerabilidades reportadas.
+6. Luego de realizar los cambio de código de la aplicación para solucionar las vulnerabilidades debe esperar un momento a que se actualice el estado del proyecto.
+
+###### Activación y análisis con Trivy
+
+Para hacer uso de la extensión de __Trivy__ es necesario realizar los siguientes pasos luego de realizar la instalación:
+
+1. Haga click en el ícono de __Trivy__ que ahora se ubica en la barra lateral izquierda
+2. Haga click en el botón de *Run Trivy now*
+
+    ![TrivyAct1](./Images/TrivyAct1.PNG)
+
+3. Espere a que finalice el análisis sobre las aplicaciones.
+
+    ![TrivyAct2](./Images/TrivyAct2.PNG)
+
+4. Valide la información expuesta por la extensión. Solucione algunas de las vulnerabilidades reportadas.
+5. Luego de realizar los cambio de código de la aplicación para solucionar las vulnerabilidades debe esperar un momento a que se actualice el estado del proyecto
+
+###### Activación y análisis con Sonarlint
+
+Para hacer uso de la extensión de __Sonarlint__ es necesario realizar los siguientes pasos luego de realizar la instalación:
+
+1. Haga click en el ícono de __Sonarlint__ que ahora se ubica en la barra lateral izquierda
+2. Haga click en el botón de *Add SonarCloud Connection*
+
+    ![SonarAct1](./Images/SonarAct1.PNG)
+
+3. Se abre una nueva pestaña en la que se debe dar click en el botón de *Generate Token*
+
+    ![SonarAct2](./Images/SonarAct2.PNG)
+
+4. En la página web que se abre en el navegador se debe ingresar el nombre del token y dar click en el botón *Generate Token*
+
+    ![SonarAct4](./Images/SonarAct4.PNG)
+
+5. Aparece un código en pantalla, este código se debe copiar y llevar a la pestaña de Visual Studio Code
+
+    ![SonarAct5](./Images/SonarAct5.PNG)
+
+6. En la sección de *User Token* se debe incluir el código que acabamos de copiar, el campo de *Organization Key* es el nombre la organización creada en SonarCloud. Luego de llenar los datos se debe hacer click en el botón de *Save Connection* y se debe obtener como resultado un *Success1*.
+
+    ![SonarAct6](./Images/SonarAct6.PNG)
+
+7. Finalmente en la barra de la extensión se observa que cargan correctamente las políticas de inspección y la conexión a la nube.
+
+    ![SonarAct7](./Images/SonarAct7.PNG)
+
+8. El análisis de esta herramienta se realiza sobre el código de la aplicación mostrando sus resultado en las advertencias. Para mas información vaya a la session de [resultados directos](#resultados-directos-de-escaneos)
+
+###### Activación y análisis con Checkov
+
+Para hacer uso de la extensión de __Checkov__ es necesario realizar los siguientes pasos luego de realizar la instalación:
+
+1. Vaya al sitio web de [__Bridgecrew__](https://www.bridgecrew.cloud/login/signIn)
+2. En la consola de la herramienta vaya a la sección de *Integrations* y luego en la pantalla haga click en *API TOKENS*
+
+    ![CheckovAct2](./Images/CheckovAct2.PNG)
+
+3. En la nueva ventana se debe seleccionar la opción de *Add Token*
+
+    ![CheckovAct3](./Images/CheckovAct3.PNG)
+
+4. Ahora se debe colocar la descripción del token, y luego hacer click en el botón de *CREATE*
+
+    ![CheckovAct4](./Images/CheckovAct4.PNG)
+
+5. Aparece una nueva ventana en donde se muestra el Token, se debe copiar este valor para usar más adelante. luego hacer click en el botón de *DONE*
+
+    ![CheckovAct5](./Images/CheckovAct5.PNG)
+
+6. Instalar la extensión de __Checkov__, al finalizar la instalación hacer click en el engranaje
+
+    ![CheckovAct1](./Images/CheckovAct1.PNG)
+
+7. En la nueva pestaña del VSCode buscar la sección de *Checkov: Token* y allí colocar el valor del token que obtuvimos en los pasos anteriores y finalizar dando enter para guardar.
+
+    ![CheckovAct6](./Images/CheckovAct6.PNG)
+
+8. En la parte inferior de VSCode ya aparecerá la ejecución de la herramienta. El análisis de esta herramienta se realiza sobre el código de la aplicación mostrando sus resultado en las advertencias. Para mas información vaya a la session de [resultados directos](#resultados-directos-de-escaneos)
+
+    ![CheckovAct7](./Images/CheckovAct7.PNG)
+
+###### Activación y análisis con ShiftLeft
+
+Para hacer uso de la extensión de __ShiftLeft__ es necesario realizar los siguientes pasos luego de realizar la instalación:
+
+1. Haga click en el ícono de __ShiftLeft__ que ahora se ubica en la barra lateral izquierda
+2. Haga Click en el botón de *Connect to ShiftLeft CORE*
+
+    ![ShiftAct1](./Images/ShiftAct1.PNG)
+
+3. En la nueva ventana del navegador haga click en la autenticación con __GitHub__
+
+    ![ShiftAct2](./Images/ShiftAct2.PNG)
+
+4. Esperar a que se realice el proceso de autenticación y luego hacer click en el botón de *Open Link* en el recuadro de notificación que se muestra
+
+    ![ShiftAct3](./Images/ShiftAct3.PNG)
+
+5. En el nuevo recuadro de notificación que se muestra hacer click en el botón de *Open*
+
+    ![ShiftAct4](./Images/ShiftAct4.PNG)
+
+6. En ese momento en VSCode el recuadro de la extensión ya queda activado
+
+    ![ShiftAct5](./Images/ShiftAct5.PNG)
+
+7. Para iniciar un escaneo con la extensión es necesario ir a *View* y seleccionar la opción de *Command Palette*. Puede abrir esto con las tecla __CTRL+Shift+p__
+
+    ![ShiftAct6](./Images/ShiftAct6.PNG)
+
+8. En el recuadro de comandos escribimos *analyze* y seleccionamos la opción relacionada con ShiftLeft
+
+    ![ShiftAct7](./Images/ShiftAct7.PNG)
+
+9. Hay que esperar a que finalice. Luego en la sección de la extensión se podrán observar los diferentes resultados del análisis
+
+    ![ShiftAct8](./Images/ShiftAct8.PNG)
+
+#### Resultados Directos de Escaneos
+
+Como observamos en las secciones anteriores algunas extensiones (Trivy, ShiftLeft, Snyk) ofrecen su propia ventana en donde podemos observar el resultado de los diferentes escaneos, sin embargo, otras de las extensiones no ofrecen ninguna visualización directa de los resultados, para ellos es necesario hacer uso de las alerta de VSCode, las cuales se encuentran indicadas en la parte inferior izquierda.
+
+Para ver los hallazgos de las extensiones siga los siguientes pasos:
+
+1. haga click sobre los íconos de alertas en la parte inferior izquierda
+
+    ![Alert1](./Images/Alert1.PNG)
+
+2. Se despliega una nueva sección en la pantalla de VSCode en donde se observan los problemas hallados. Haga click en el ícono de justificación para cambiar el esquema de presentación a modo tabla.
+
+    ![Alert2](./Images/Alert2.PNG)
+
+3. Observe cada uno de los problemas y valide cual es su fuente, ya que esta corresponde a la extensión que reporta el problema
+
+    ![Alert3](./Images/Alert3.PNG)
+
+4. Haga Click sobre alguna de las filas de la tabla de problemas y observe como es redirigido al archivo de código fuente en donde se observa el problema
+
+    ![Alert4](./Images/Alert4.PNG)
+
+5. Coloque el puntero del mouse sobre la línea de código resaltada y observe el recuadro que aparece con las diferentes observaciones
+
+    ![Alert5](./Images/Alert5.PNG)
+
+6. Sobre el recuadro aparecen enlaces que lo pueden redirigir a sitios web donde brinden más información sobre la vulnerabilidad. haga click sobre alguno de ellos y valide la información.
+7. Solucione alguna de las vulnerabilidades indicadas y valide si cambia el número de problemas reportados.
