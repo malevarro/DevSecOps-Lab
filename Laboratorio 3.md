@@ -92,4 +92,3 @@ Para este laboratorio se deben realizar los pasos que se encuentran en el siguie
 Para este laboratorio se deben realizar los pasos que se encuentran en el siguiente enlace
 
 [Managing technical debt with SonarCloud and Azure DevOps](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/AZ400_M07_L17_Managing_technical_debt_with_SonarQube_and_Azure_DevOps.html)
-
