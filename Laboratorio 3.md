@@ -9,14 +9,14 @@
   - [Catálogo de herramientas](#catálogo-de-herramientas)
   - [Requisitos](#requisitos)
     - [Creación de cuentas en los servicios en línea de las herramientas](#creación-de-cuentas-en-los-servicios-en-línea-de-las-herramientas)
-    - [Creación de una cuenta en Azure](#creación-de-una-cuenta-en-azure)
+    - [Creación de una cuenta en Azure Cloud](#creación-de-una-cuenta-en-azure-cloud)
     - [Creación de una cuenta en Azure DevOps](#creación-de-una-cuenta-en-azure-devops)
     - [Instalación de extensiones en Azure DevOps](#instalación-de-extensiones-en-azure-devops)
   - [Procedimiento](#procedimiento)
     - [Análisis del código en los flujos de automatización (DevSecOps)](#análisis-del-código-en-los-flujos-de-automatización-devsecops)
       - [Mend Bolt (formerly WhiteSource)](#mend-bolt-formerly-whitesource)
       - [SonarCloud](#sonarcloud)
-    - [Snyk](#snyk)
+      - [Snyk](#snyk)
   - [Referencias](#referencias)
 
 ---
@@ -69,7 +69,7 @@ Para la ejecución del laboratorio es indispensable realizar los siguientes paso
    | Snyk | <https://app.snyk.io/login> |
    | Sonarcloud | <https://sonarcloud.io/login> |
 
-### Creación de una cuenta en Azure
+### Creación de una cuenta en Azure Cloud
 
 1. Vaya a la página de registro de la cuenta para estudiantes gratuita de Azure con el siguiente enlace [AZURE](https://signup.azure.com/studentverification?offerType=1&correlationId=2ed1a214395c4c9eb6df31a1ce4df639)
 2. Puede hacer uso de la cuenta previamente creada en __GitHub__ para hacer autoregistro, o lo puede hacer mediante la creación de una cuenta con el correo electrónico. Este correo electrónico debe ser uno correspondiente a una cuenta estudiantil, el correo debe ser válido ya que en el proceso se hará validación del mismo.
@@ -116,7 +116,7 @@ Para este laboratorio se deben realizar los pasos que se encuentran en el siguie
 
 [Managing technical debt with SonarCloud and Azure DevOps](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/AZ400_M07_L17_Managing_technical_debt_with_SonarQube_and_Azure_DevOps.html)
 
-### Snyk
+#### Snyk
 
 ---
 
