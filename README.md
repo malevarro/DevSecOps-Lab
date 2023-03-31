@@ -6,6 +6,7 @@ A continuación tendrá acceso a las diferentes guías de laboratorio que se esp
 
 1. [Laboratorio 1 - Pasos básicos con contenedores](Laboratorio%201.md)
 2. [Laboratorio 2 - Análisis de Vulnerabilidades](Laborarotio%202.md)
+3. [Laboratorio 3 - Implementación de DevSecOps](Laborarotio%203.md)
 
 ---
 Material de libre acceso y consulta.
@@ -14,4 +15,4 @@ Material de libre acceso y consulta.
 El autor no se hace responsable por el uso indebido del material aquí expuesto.
 
 ---
-Todos los derechos reservado __Malevarro (c)__ 2023
+Todos los derechos reservado __Malevarro (R)__ 2023

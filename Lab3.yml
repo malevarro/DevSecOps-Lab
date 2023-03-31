@@ -1,0 +1,97 @@
+# Docker
+# Build a Docker image
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger:
+- master
+
+resources:
+- repo: self
+
+variables:
+  dockerRegistryServiceConnection: '26a65500-b05f-4a4c-a7dd-73a9e7a59dcb'
+  imageRepository: 'malevarrokart'
+  containerRegistryn: 'myacr21942.azurecr.io'
+  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
+  tag: '$(Build.BuildId)'
+  vmImageName: 'ubuntu-latest'
+
+pool:
+  vmImage: $(vmImageName)
+
+stages:
+#- stage: Build
+#  displayName: Build and push stage
+#  jobs:
+#  - job: Build
+#    displayName: Build
+#    pool:
+#      vmImage: $(vmImageName)
+#    steps:
+#    - task: Docker@2
+#      displayName: Build and push an image to container registry
+#      inputs:
+#        command: buildAndPush
+#        repository: $(imageRepository)
+#        dockerfile: $(dockerfilePath)
+#        containerRegistry: $(dockerRegistryServiceConnection)
+#        tags: |
+#          $(tag)
+
+  - stage: SecurityScan
+    displayName: SecurityAnalysis
+    jobs:
+      - job: Trivy
+        displayName: Trivy
+        pool:
+          vmImage: $(vmImageName)
+        steps:
+        - task: Bash@3
+          inputs:
+            targetType: 'inline'
+            script: |
+              # Write your commands here
+              export TRIVY_AUTH_URL=$(URL)
+              export TRIVY_USERNAME=$(USERNAME)
+              export TRIVY_PASSWORD=$(PASSWORD)
+              echo "[+] Fetching Trivy"
+              export TRIVYVERSION=$(git ls-remote --refs --sort="version:refname" --tags https://github.com/aquasecurity/trivy | cut -d/ -f3-|tail -n1 | sed -e 's/^.//')
+              echo "[+] Trivy Version:" ${TRIVYVERSION}
+              wget -nv --no-cache https://github.com/aquasecurity/trivy/releases/download/v${TRIVYVERSION}/trivy_${TRIVYVERSION}_Linux-64bit.deb
+              echo "[+] Installing Trivy"
+              sudo dpkg -i trivy_${TRIVYVERSION}_Linux-64bit.deb
+              echo "[+] Trivy Installed "${TRIVYVERSION}
+              echo "[+] Running Trivy"
+              echo "***Vulneability Assesment***"
+              echo "[+] Writing Trivy Text File" 
+              trivy image -f table --exit-code 0 $(containerRegistryn)/$(imageRepository)
+              echo "***SBOM Analysis***"
+              echo "[+] Writing Trivy SBOM JSON File" 
+              trivy image -f table --scanners vuln  --exit-code 0 $(containerRegistryn)/$(imageRepository)
+              echo "***Docker Compliance Analysis***"
+              echo "[+] Writing Trivy Docker Compliance File" 
+              trivy image -f table --compliance docker-cis $(containerRegistryn)/$(imageRepository)
+      - job: Snyk
+        displayName: Snyk
+        pool:
+          vmImage: $(vmImageName)
+        steps:
+        - task: NodeAndNpmTool@1
+          inputs:
+            versionSpec: '10.x'
+            checkLatest: true
+        - task: SnykSecurityScan@1
+          inputs:
+            serviceConnectionEndpoint: 'SnykApp'
+            testType: 'app'
+            monitorWhen: 'always'
+            failOnIssues: false
+      - job: Mend
+        displayName: Mend
+        pool:
+          vmImage: $(vmImageName)
+        steps:
+        - task: WhiteSource@21
+          inputs:
+            cwd: '$(System.DefaultWorkingDirectory)'
+            projectName: 'reactjs-shopping-cart'
