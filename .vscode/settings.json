@@ -1,5 +1,16 @@
 {
     "cSpell.words": [
-        "dockerlogo"
+        "checkov",
+        "devsecops",
+        "dockerlogo",
+        "eastus",
+        "linux",
+        "myacr",
+        "myaksrg",
+        "Registrys",
+        "sapp",
+        "sariflog",
+        "snyk",
+        "trivy"
     ]
 }
