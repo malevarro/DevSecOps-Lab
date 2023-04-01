@@ -19,6 +19,11 @@
       - [Mend Bolt (formerly WhiteSource)](#mend-bolt-formerly-whitesource)
       - [SonarCloud](#sonarcloud)
       - [Snyk](#snyk)
+      - [Trivy](#trivy)
+      - [Checkov](#checkov)
+    - [Despliegue de la aplicación en Azure](#despliegue-de-la-aplicación-en-azure)
+      - [Despliegue simple de una aplicación](#despliegue-simple-de-una-aplicación)
+      - [Despliegue Completo - DevSecOps](#despliegue-completo---devsecops)
   - [Referencias](#referencias)
 
 ---
@@ -208,7 +213,52 @@ Se va a trabajar con el repositorio de [reactjs-shopping-cart](https://github.co
 
 ![SnykDevOps1](./Images/SnykDevOps1.PNG)
 
-Realizar los ajustes necesarios para su entorno de trabajo en Azure DevOps
+> __NOTA__ Para este y los laboratorios que singuen no olvide realizar los ajustes necesarios para su entorno de trabajo en Azure DevOps. Este consiste en verificar los nombres de los Service Connections creados y reemplazarlos en los archivos. en la misma vía es necesario crear las siguientes variables en cada uno de los pipelines:
+>
+>  1. API : Valor de la API de conexión de Checkov. Siga los pasos del manual de [API Access](https://docs.bridgecrew.io/docs/get-api-token) entregado por el fabricante.
+>  2. containerRegistrys : El nombre del ACR
+>  3. imageRepository : El nombre con el que se va a crear la imagen en el repositorio, es definido por usted.
+>  4. MendProj : el nombre del proyecto definido en el laboratorio de [Mend](#mend-bolt-formerly-whitesource)
+>  5. PASSWORD : la contraseña obtenida del ACR al momento de su creación
+>  6. sariflog : nombre una carpeta para exportar resultados de los análisis. Definido por usted.
+>  7. SonarOrg : Valor de la organización obtenido por usted al momento de registrar la aplicación en SonarCloud. Acciones indicadas en el laboratorio de [Sonar](#sonarcloud)
+>  8. SonarProj : Valor del proyecto obtenido por usted al momento de registrar la aplicación en SonarCloud. Acciones indicadas en el laboratorio de [Sonar](#sonarcloud)
+>  9. SonarProjKey : Valor de la llave de proyecto obtenido por usted al momento de registrar la aplicación en SonarCloud. Acciones indicadas en el laboratorio de [Sonar](#sonarcloud)
+>  10. tag : $(Build.BuildId)
+>  11. URL : la dirección de acceso del ACR
+>  12. USERNAME : El nombre del usuario del ACR
+>  13. vmImageName : ubuntu-latest
+>  14. WebAppSvc : Nombre del Web App Service creado en Azure
+
+#### Trivy
+
+Para este laboratorio haga uso del proyecto creado en el punto anterior y ejecute los tres (3) pasos indicados en la sección "Task 2: Create and Trigger a build" de la guía [Implement Security and Compliance in an Azure DevOps pipeline](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/AZ400_M07_L16_Implement_Security_and_Compliance_in_an_Azure_Pipeline.html).
+
+Se va a trabajar con el repositorio de [reactjs-shopping-cart](https://github.com/malevarro/reactjs-shopping-cart), allí hacer uso del archivo [azure-pipelines-trivy basic.yml](https://github.com/malevarro/reactjs-shopping-cart/blob/master/azure-pipelines-trivy%20basic.yml)
+
+Luego ejecute la herramienta con parámetro avanzados, allí hacer uso del archivo [azure-pipelines-trivy full cli XML.yml](https://github.com/malevarro/reactjs-shopping-cart/blob/master/azure-pipelines-trivy%20full%20cli%20XML.yml)
+
+#### Checkov
+
+Para este laboratorio haga uso del proyecto creado en el punto anterior y ejecute los tres (3) pasos indicados en la sección "Task 2: Create and Trigger a build" de la guía [Implement Security and Compliance in an Azure DevOps pipeline](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/AZ400_M07_L16_Implement_Security_and_Compliance_in_an_Azure_Pipeline.html).
+
+Se va a trabajar con el repositorio de [reactjs-shopping-cart](https://github.com/malevarro/reactjs-shopping-cart), allí hacer uso del archivo [azure-pipelines-checkov.yml](https://github.com/malevarro/reactjs-shopping-cart/blob/master/azure-pipelines-checkov.yml)
+
+### Despliegue de la aplicación en Azure
+
+A continuación de muestran dos flujos que permiten realizar la creación y despliegue de una aplicación en Azure. el primero es un despliegue simple y el segundo es un despliegue con análisis de seguridad
+
+#### Despliegue simple de una aplicación
+
+Para este laboratorio haga uso del proyecto creado en el punto anterior y ejecute los tres (3) pasos indicados en la sección "Task 2: Create and Trigger a build" de la guía [Implement Security and Compliance in an Azure DevOps pipeline](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/AZ400_M07_L16_Implement_Security_and_Compliance_in_an_Azure_Pipeline.html).
+
+Se va a trabajar con el repositorio de [reactjs-shopping-cart](https://github.com/malevarro/reactjs-shopping-cart), allí hacer uso del archivo [azure-pipelines-deploy.yml](https://github.com/malevarro/reactjs-shopping-cart/blob/master/azure-pipelines-deploy.yml)
+
+#### Despliegue Completo - DevSecOps
+
+Para este laboratorio haga uso del proyecto creado en el punto anterior y ejecute los tres (3) pasos indicados en la sección "Task 2: Create and Trigger a build" de la guía [Implement Security and Compliance in an Azure DevOps pipeline](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/AZ400_M07_L16_Implement_Security_and_Compliance_in_an_Azure_Pipeline.html).
+
+Se va a trabajar con el repositorio de [reactjs-shopping-cart](https://github.com/malevarro/reactjs-shopping-cart), allí hacer uso del archivo [azure-pipelines-devsecops.yml](https://github.com/malevarro/reactjs-shopping-cart/blob/master/azure-pipelines-devsecops.yml)
 
 ---
 
