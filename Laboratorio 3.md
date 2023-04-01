@@ -126,7 +126,8 @@ Para la creación de estos recursos realizar los siguientes pasos
     az appservice plan create -g $RESOURCE_GROUP -n $WEBAPP_NAME --is-linux --sku B1
     
     #---Crear el Web App Service
-    az webapp config container set --docker-custom-image-name MyDockerCustomImage --docker-registry-server-password $ACR_PASSWORD --docker-registry-server-url https://$ACR_NAME.azurecr.io --docker-registry-server-user $ACR_USERNAME --name $WEBAPP_NAME --resource-group $RESOURCE_GROUP
+    az webapp create --resource-group $RESOURCE_GROUP --plan $WEBAPP_NAME --name $WEBAPP_NAME --deployment-container-image-name nginx
+    az webapp config container set --docker-custom-image-name nginx --docker-registry-server-password $ACR_PASSWORD --docker-registry-server-url https://$ACR_NAME.azurecr.io --docker-registry-server-user $ACR_USERNAME --name $WEBAPP_NAME --resource-group $RESOURCE_GROUP
     
     #---Validar Web App Service
     az webapp config container show --name $WEBAPP_NAME --resource-group $RESOURCE_GROUP
@@ -142,7 +143,7 @@ Para la creación de estos recursos realizar los siguientes pasos
     
     #Verificar componentes creados y activos
     az group list -o table
-    az acr list -o table#Listar los valores de las variables
+    az acr list -o table
 
     ```
 
