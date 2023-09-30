@@ -73,8 +73,6 @@ Para la ejecución del laboratorio es indispensable realizar los siguientes paso
 2. Ya con la cuenta de GitHub creada, abra en el mismo navegador en pestañas independientes los siguientes repositorios:
    1. <https://github.com/malevarro/reactjs-shopping-cart>
    2. <https://github.com/malevarro/nodejs-goof>
-   3. <https://github.com/malevarro/pipelines-javascript-docker>
-   4. <https://github.com/malevarro/mslearn-aks-deployment-pipeline-github-actions>
 
 3. Siga las instrucciones de la siguiente guía para realizar la copia (Fork/Bifurcación) de cada uno de los repositorios a su cuenta de GitHub
 
@@ -106,8 +104,7 @@ Para la ejecución de los siguientes laboratorios es necesario la descarga de un
     ```bash
     git clone https://github.com/malevarro/reactjs-shopping-cart.git
     git clone https://github.com/malevarro/nodejs-goof.git
-    git clone https://github.com/malevarro/mslearn-aks-deployment-pipeline-github-actions.git
-    git clone https://github.com/malevarro/pipelines-javascript-docker.git
+
     ```
 
     > Al final por cada aplicación descargada deberá existir una carpeta por cada una en la ruta de trabajo.
@@ -115,11 +112,11 @@ Para la ejecución de los siguientes laboratorios es necesario la descarga de un
 5. Ejecutar los siguientes comandos para realizar la descarga de algunas imágenes de contenedores que serán usadas en los laboratorios
 
     ```bash
-    docker pull tomcat:8.5.68
+
     docker pull node:6-stretch
     docker pull kodekloud/simple-webapp
     docker pull kodekloud/ubuntu-ssh-enabled
-    docker pull kodekloud/throw-dice
+
     ```
 
     > Se puede comprobar la descarga exitosa de las imágenes de contenedores ejecutando el siguiente comando: __docker images__
